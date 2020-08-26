@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-title>
+      Post new message
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" [fullscreen]="true">
+  
+ <ion-card>
+
+   <ion-card-header>
+     <ion-card-title>Post New Message</ion-card-title>
+   </ion-card-header>
+
+    <ion-card-content>
+      <ion-item class="ion-no-padding">
+        <ion-label position="floating">Message:</ion-label>
+        <ion-input [(ngModel)]="model.message" name="message"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-no-padding">
+        <ion-label position="floating">Image Url:</ion-label>
+        <ion-input [(ngModel)]="model.imageUrl" name="imageUrl"></ion-input>
+      </ion-item>
+
+    <ion-button (click)="onPost()" color="primary">
+      Post Message
+      <ion-icon name="paper-plane-outline"></ion-icon>
+    </ion-button>
+  </ion-card-content>
+
+</ion-card>
+
+</ion-content>

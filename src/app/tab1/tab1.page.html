@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+    Hey Friends!
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" [fullscreen]="true">
+
+  <!--
+<ul>
+  <li *ngFor="let p of postToDisplay"> {{ p.message }}</li>
+</ul>
+
+
+
+ <ion-card-header>
+    Here or the latest post from the following
+  </ion-card-header>
+
+<ion-card>
+<ion-item>
+  <ion-icon name="pin" slot="start"></ion-icon>
+  <ion-label>Freedom of Speech!</ion-label>
+  <ion-button fill="outline" slot="end">View Post</ion-button>
+</ion-item>
+
+<ion-card-content *ngFor="let p of postToDisplay>
+  What the person post link
+</ion-card-content>
+</ion-card>
+
+
+-->
+
+<ion-card *ngFor="let p of postToDisplay">
+  <ion-img *ngIf="p.imageUrl" src="{{p.imageUrl}}"></ion-img>
+
+  <ion-card-header>
+    <ion-card-title>{{p.message}}</ion-card-title>
+    <ion-card-subtitle>{{p.from}}</ion-card-subtitle>
+    <ion-card-subtitle class="date">{{p.timeStamp | date:'dd/MMM/yyyy'}}</ion-card-subtitle>
+  </ion-card-header>
+</ion-card>
+
+ 
+  
+</ion-content>
+
