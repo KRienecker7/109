@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Post } from '../models/post';
 import { DataService } from '../services/data.service';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-tab2',
@@ -9,11 +10,16 @@ import { DataService } from '../services/data.service';
 })
 export class Tab2Page {
   model = new Post();
+  myFriends = [];
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, private shared: SharedService) {
+    this.data.getAllFriends().subscribe(list => {
+      this.myFriends = list.filter(f  => f.friendOf === this.shared.userName);
+    });
+   }
 
     onPost() {
-      this.model.from = "Kenny";
+      this.model.from = this.shared.userName;
       console.log("posting", this.model);
 
       // save on service

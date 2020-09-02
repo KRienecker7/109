@@ -7,8 +7,34 @@
 </ion-header>
 
 <ion-content color="light" [fullscreen]="true">
-  
-Friends Management
+ 
+  <ion-header>Friends Management</ion-header>
+
+  <ion-card>
+  <ion-card-content>
+    <h2 class= "section-header">Register new Friend</h2>
+    <ion-item>
+      <ion-label position="stacked">Friend name: </ion-label>
+    <ion-input [(ngModel)]="model.name" name="name"></ion-input>
+    </ion-item>
+
+    <ion-button (click)="choosePic(0)">Choose pic</ion-button>
+    <ion-button (click)="choosePic(1)">Take pic</ion-button>
+
+    <ion-button (click)="onSave()" color="primary">
+    Save Friend
+    </ion-button>
+  </ion-card-content>
+</ion-card>
+
+
+<!-- list friends -->
+<ion-list>
+  <ion-item *ngFor="let friend of myFriend">
+    <ion-icon name="person-circle-outline"></ion-icon>
+    <ion-label>{{ friend.name }}</ion-label>
+  </ion-item>
+</ion-list>
   
 
 </ion-content>
