@@ -29,7 +29,12 @@ export class Tab1Page {
 
       this.postToDisplay = list.map(p => {
         let wrongFormat: any = p.timeStamp;
-        p.timeStamp = new firestore.Timestamp(wrongFormat.seconds, wrongFormat.nanoseconds).toDate();
+        if(wrongFormat) {
+          p.timeStamp = new firestore.Timestamp(wrongFormat.seconds, wrongFormat.nanoseconds).toDate();
+        }
+        else {
+          p.timeStamp = new Date();
+        }
         return p;
         });
 
